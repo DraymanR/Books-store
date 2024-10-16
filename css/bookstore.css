@@ -1,0 +1,117 @@
+.add-book-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 400px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.add-book-card input {
+  display: block;
+  margin: 10px 0;
+  width: 100%;
+  padding: 8px;
+}
+
+#showFormButton {
+  margin: 20px;
+}
+
+.container {
+  display: flex;
+  /* Use flexbox for layout */
+  max-width: 1200px;
+  /* Maximum width of the container */
+  margin: 0 auto;
+  /* Center the container */
+}
+
+.book-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+  padding: 20px;
+  width: 60%;
+  /* Set to 60% of the container */
+}
+
+.book-details {
+  width: 40%;
+  /* Set to 40% of the container */
+  padding: 20px;
+  border-left: 1px solid #ccc;
+  /* Add a left border for separation */
+}
+
+.book-header {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  font-weight: bold;
+  background-color: #f2f2f2;
+  /* Light grey background */
+  padding: 10px;
+  border-bottom: 2px solid #ccc;
+  /* Bottom border */
+}
+
+.book-header div {
+  text-align: center;
+  /* Center the text */
+}
+
+.book-item {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+  /* Change cursor to pointer on hover */
+}
+
+.book-item:hover {
+  background-color: #f9f9f9;
+  /* Light background on hover */
+}
+
+.book-item div {
+  display: flex;
+  /* Use flexbox for alignment */
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+}
+
+.book-image img {
+  width: 50px;
+  height: auto;
+}
+
+.book-title {
+  font-weight: bold;
+}
+
+#detailsContent {
+  margin-top: 20px;
+  /* Space between title and content */
+}
+.sort-container {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+#sortPriceButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#sortPriceButton:hover {
+  background-color: #0056b3;
+}

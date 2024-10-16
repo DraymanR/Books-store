@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/bookstore.css" rel="stylesheet">
+    <title>Book Store ERP</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="book-container" id="bookList"></div>
+        <div class="book-details" id="bookDetails">
+            <h2>Book Details</h2>
+            <div id="detailsContent">Select a book to see details here.</div>
+        </div>
+    </div>
+    <div id="addBookCard" style="display: none;">
+        <h3>Add / Update Book</h3>
+        <label for="bookId">Book ID:</label>
+        <input type="number" id="bookId" required>
+        <label for="bookTitle">Title:</label>
+        <input type="text" id="bookTitle" required>
+        <label for="bookPrice">Price:</label>
+        <input type="number" id="bookPrice" required>
+        <label for="bookImage">Image URL:</label>
+        <input type="text" id="bookImage" required>
+        <label for="bookAvailability">Available:</label>
+        <input type="checkbox" id="bookAvailability" checked>
+        <label for="bookRating">Rating:</label>
+        <input type="number" id="bookRating" min="0" max="5" step="0.1" required>
+        <button id="addBookButton">Add Book</button>
+        <button id="cancelButton">Cancel</button>
+    </div>
+    <button id="showFormButton">Add Book</button>
+    <script src="../js/bookStore.js"></script>
+</body>
+
+</html>

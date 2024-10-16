@@ -4,7 +4,7 @@
       "title": "The Catcher in the Rye!!!!",
       "price": 9.99,
       "action": true,
-      "image_routing": "../image/books/radeBook1.jpg",
+      "image_routing": "../image/books/book1.jpg",
       "rate": 4.2
     },
     {
@@ -12,7 +12,7 @@
       "title": "To Kill a Mockingbird",
       "price": 12.99,
       "action": false,
-      "image_routing": "../image/books/radeBook1.jpg",
+      "image_routing": "../image/books/book2.jpg",
       "rate": 4.8
     },
     {
@@ -20,7 +20,7 @@
       "title": "1984",
       "price": 8.49,
       "action": true,
-      "image_routing": "../image/books/radeBook1.jpg",
+      "image_routing": "../image/books/book3.jpg",
       "rate": 4.6
     },
     {
@@ -28,7 +28,7 @@
       "title": "Pride and Prejudice",
       "price": 7.99,
       "action": true,
-      "image_routing": "../image/books/radeBook1.jpg",
+      "image_routing": "../image/books/book4.jpg",
       "rate": 4.5
     },
     {
@@ -36,7 +36,7 @@
       "title": "The Great Gatsby",
       "price": 10.99,
       "action": false,
-      "image_routing": "../image/books/radeBook1.jpg",
+      "image_routing": "../image/books/book5.jpg",
       "rate": 4.3
     }
   ]

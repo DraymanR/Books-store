@@ -1,22 +1,25 @@
 // // // document.addEventListener('DOMContentLoaded', displayBooks);
+let booksCache = [];
+
 function createHeaderRow() {
+
+
     const bookList = document.getElementById('bookList');
     const headerRow = document.createElement('div');
     headerRow.classList.add('book-header');
-
     headerRow.innerHTML = `
                 <div>Book ID</div>
-                
                 <div>Title</div>
                 <div>Price</div>
                 <div>Availability</div>
                 <div>Update</div>
                 <div>Delete</div>
+                <br>
+                <button id="sortBook">sort  by price</button>
             `;
+
     bookList.appendChild(headerRow);
 }
-
-let booksCache = [];
 
 // Load books from localStorage or fetch from JSON
 async function getAllBooks() {
@@ -128,12 +131,22 @@ function updateBook(bookId) {
 
 // Function to show the add/edit book card
 function showAddBookCard() {
+    hideAddBookButton()
     document.getElementById('addBookCard').style.display = 'block';
 }
 
 // Function to hide the add book card
 function hideAddBookCard() {
     document.getElementById('addBookCard').style.display = 'none';
+    showAddBookButton()
+}
+
+function showAddBookButton() {
+    document.getElementById('showFormButton').style.display = 'block';
+}
+
+function hideAddBookButton() {
+    document.getElementById('showFormButton').style.display = 'none';
 }
 
 // Function to clear input fields
@@ -166,14 +179,31 @@ function populateEditForm(book) {
     showAddBookCard();
 }
 
+function sortByProperty(property, isAscending = true) {
+    booksCache.sort((a, b) => {
+        if (a[property] < b[property]) return isAscending ? -1 : 1;
+        if (a[property] > b[property]) return isAscending ? 1 : -1;
+        return 0;
+    });
+}
+
+
 async function displayBooks() {
     const books = await getAllBooks();
-    const bookList = document.getElementById('bookList');
-
+    const bookList = document.getElementById('bookList')
     bookList.innerHTML = '';
 
     createHeaderRow();
 
+    // Add the sort button listener after creating the header row
+    const sortButton = document.getElementById('sortBook');
+    if (sortButton) {
+        sortButton.addEventListener('click', function () {
+            sortByProperty("price"); // Sort booksCache by price in ascending order
+            localStorage.setItem('books', JSON.stringify(booksCache)); // Update localStorage
+            displayBooks(); // Re-display sorted books
+        });
+    }
     if (books && books.length > 0) {
         books.forEach(book => {
             const bookItem = document.createElement('div');
@@ -184,13 +214,9 @@ async function displayBooks() {
                 <div class="book-title">${book.title}</div>
                 <div class="book-price">$${book.price.toFixed(2)}</div>
                 <div class="book-availability">${book.action ? 'Available' : 'Out of stock'}</div>
-
                 <button class="edit-book" data-id="${book.id}">✏️</button>
                 <button class="delete-book" data-id="${book.id}">🗑️</button>
             `;
-            // <div class="book-image"><img src="${book.image_routing}" alt="${book.title}"></div>
-            // <div class="book-rating">Rating: ${book.rate}</div>
-
             // Add event listeners for delete and edit functionality
             bookItem.querySelector('.delete-book').addEventListener('click', function () {
                 deleteBook(book.id);
@@ -244,6 +270,7 @@ addBookButton.addEventListener('click', function () {
     } else {
         updateBook(bookId);
     }
+
 });
 
 // Cancel button to hide the form
@@ -251,3 +278,4 @@ document.getElementById('cancelButton').addEventListener('click', function () {
     hideAddBookCard();
     clearInputFields();
 });
+
